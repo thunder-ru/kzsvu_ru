@@ -1,23 +1,34 @@
 const hamburger = document.getElementById('hamburger');
 const hamburgerMenu = document.getElementById('hamburger-menu');
 
+let timeout;
+
 hamburger.addEventListener('mouseenter', () => {
-    hamburgerMenu.classList.add('active');
+    clearTimeout(timeout);
+    hamburgerMenu.style.opacity = '1';
+    hamburgerMenu.style.visibility = 'visible';
+    hamburgerMenu.style.transform = 'translateY(0)';
 });
 
 hamburgerMenu.addEventListener('mouseenter', () => {
-    hamburgerMenu.classList.add('active');
+    clearTimeout(timeout);
+    hamburgerMenu.style.opacity = '1';
+    hamburgerMenu.style.visibility = 'visible';
+    hamburgerMenu.style.transform = 'translateY(0)';
 });
 
 hamburger.addEventListener('mouseleave', () => {
-    // Задержка, чтобы можно было перейти в меню
-    setTimeout(() => {
+    timeout = setTimeout(() => {
         if (!hamburgerMenu.matches(':hover')) {
-            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.style.opacity = '0';
+            hamburgerMenu.style.visibility = 'hidden';
+            hamburgerMenu.style.transform = 'translateY(-10px)';
         }
-    }, 300);
+    }, 200);
 });
 
 hamburgerMenu.addEventListener('mouseleave', () => {
-    hamburgerMenu.classList.remove('active');
+    hamburgerMenu.style.opacity = '0';
+    hamburgerMenu.style.visibility = 'hidden';
+    hamburgerMenu.style.transform = 'translateY(-10px)';
 });
