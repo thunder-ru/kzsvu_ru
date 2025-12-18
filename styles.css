@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: system-ui, -apple-system, Arial, sans-serif;
 }
 
@@ -12,7 +15,7 @@
     margin: 0 auto;
     background-color: #000;
     border-bottom: 1px solid rgba(239, 233, 214, 0.3);
-    position: relative; /* <<< КЛЮЧЕВОЕ: дропдауны теперь внутри header */
+    position: relative;
     z-index: 1001;
 }
 
@@ -24,17 +27,17 @@
     height: 100%;
 }
 
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .logo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .org-name {
@@ -60,15 +63,10 @@
     transition: all 0.2s;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: rgba(198, 153, 39, 1);
-    border-bottom-color: rgba(198, 153, 39, 1);
-}
-
+/* НЕ подсвечиваем активный изначально, только при hover на пункт */
 .menu-item:hover > a {
     color: rgba(198, 153, 39, 1);
-    border-bottom-color: rgba(198, 153, 39, 1);
+    border-bottom: 2px solid rgba(198, 153, 39, 1);
 }
 
 .header-right {
@@ -91,7 +89,6 @@
     color: rgba(198, 153, 39, 1);
 }
 
-/* Дропдауны */
 .dropdown-menu {
     position: absolute;
     top: 94px;
@@ -106,7 +103,7 @@
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease;
     border-top: 1px solid rgba(239, 233, 214, 0.3);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
@@ -121,20 +118,18 @@
     min-width: 200px;
 }
 
-.dropdown-column h4 {
-    color: rgba(239, 233, 214, 1);
-    font-size: 24px;
-    line-height: 30px;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
+.dropdown-column h4,
 .dropdown-column p {
     color: rgba(239, 233, 214, 0.8);
     font-size: 24px;
     line-height: 30px;
     margin-bottom: 12px;
-    cursor: pointer;
+}
+
+.dropdown-column h4 {
+    color: rgba(239, 233, 214, 1);
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .dropdown-column p:hover {
@@ -154,42 +149,49 @@
 
 .image-caption {
     position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: rgba(0,0,0,0.6);
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-align: center;
-    width: calc(100% - 32px);
+    padding: 20px 30px;
+    border-radius: 0 0 8px 8px;
 }
 
-.caption-text {
+.caption-title {
+    font-family: 'Prata', serif;
     color: rgba(239, 233, 214, 1);
     font-size: 24px;
     line-height: 30px;
-    margin-bottom: 8px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: left;
 }
 
-.subscribe-link, .buy-ticket-link {
+.caption-link {
+    font-family: 'Prata', serif;
     color: rgba(198, 153, 39, 1);
     text-decoration: none;
+    font-size: 24px;
+    line-height: 30px;
     font-weight: 600;
+    display: block;
+    margin-top: 8px;
+    text-align: left;
 }
 
-.subscribe-link:hover, .buy-ticket-link:hover {
+.caption-link:hover {
     text-decoration: underline;
 }
 
 .social-icons {
     display: flex;
     gap: 16px;
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
 .social-icons a svg {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     color: rgba(239, 233, 214, 1);
     transition: color 0.2s;
 }
