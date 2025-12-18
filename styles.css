@@ -66,13 +66,12 @@
 .nav-menu a:hover,
 .nav-menu a.active {
     color: rgba(198, 153, 39, 1);
-    border-bottom-color: rgba(198, 153, 39, 1);
+    border-bottom: 2px solid rgba(198, 153, 39, 1);
 }
 
-/* ИСПРАВЛЕНИЕ: hover на весь пункт меню */
 .menu-item:hover > a {
     color: rgba(198, 153, 39, 1);
-    border-bottom-color: rgba(198, 153, 39, 1);
+    border-bottom: 2px solid rgba(198, 153, 39, 1);
 }
 
 .header-right {
@@ -95,13 +94,14 @@
     color: rgba(198, 153, 39, 1);
 }
 
-/* Общие стили дропдаунов */
+/* Дропдауны */
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 94px; /* точно под шапкой */
     left: 0;
-    width: 100vw;
+    width: 100%;
     max-width: 1728px;
+    margin: 0 auto;
     background: rgba(17, 17, 14, 0.95);
     padding: 40px 80px;
     display: flex;
@@ -113,22 +113,12 @@
     transition: all 0.3s ease;
     border-top: 1px solid rgba(239, 233, 214, 0.3);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin: 0 auto;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px); /* центрируем по ширине header */
 }
 
-.dropdown-menu.active { /* для JS */
+.menu-item:hover > .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* ИСПРАВЛЕНИЕ: показ при hover на .menu-item */
-.menu-item:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 .dropdown-column {
@@ -156,27 +146,19 @@
     color: rgba(239, 233, 214, 1);
 }
 
-.image-col {
-    position: relative;
-}
-
 .dropdown-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .image-caption {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
     background: rgba(0,0,0,0.6);
     padding: 12px 24px;
     border-radius: 6px;
     text-align: center;
-    width: calc(100% - 32px);
 }
 
 .caption-text {
@@ -215,19 +197,12 @@
     color: rgba(198, 153, 39, 1);
 }
 
-/* Гамбургер-дропдаун (прижат к правому краю) */
+/* Гамбургер-меню — прижато к правому краю */
 .hamburger-dropdown {
     left: auto;
-    right: 40px;
+    right: 0;
     width: auto;
-    max-width: none;
-    transform: translateY(-10px); /* без X */
+    padding: 40px 80px;
 }
 
-.hamburger-dropdown.active {
-    transform: translateY(0);
-}
-
-/* Адаптив (оставил твои медиа-запросы, но можно доработать для мобильного меню на клик) */
-@media (max-width: 1200px) { /* ... твои стили ... */ }
-@media (max-width: 768px) { /* ... твои стили ... */ }
+/* Адаптив оставь свой, если нужно */
