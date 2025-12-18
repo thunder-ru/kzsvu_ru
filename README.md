@@ -1,1 +1,0 @@
-# kzsvu_ru
