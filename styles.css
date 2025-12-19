@@ -38,7 +38,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
 
 .search-icon:hover svg, .hamburger:hover svg { color: rgba(198, 153, 39, 1); }
 
-/* Дропдауны — оба одинаковые, выше всего */
+/* Дропдауны — выше всего */
 .dropdown-menu {
     position: absolute;
     top: 94px;
