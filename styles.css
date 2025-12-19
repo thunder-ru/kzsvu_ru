@@ -59,6 +59,12 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     border-radius: 0 0 12px 12px;
 }
 
+/* Для гамбургера */
+.dropdown-menu.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
 .menu-item.has-dropdown:hover > .dropdown-menu,
 .dropdown-menu:hover { opacity: 1; visibility: visible; }
 
@@ -112,6 +118,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     line-height: 40px;
     color: rgba(198, 153, 39, 1);
     margin: 0;
+    font-style: italic;
 }
 
 .quote-box cite {
