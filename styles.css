@@ -90,7 +90,7 @@ body {
     color: rgba(198, 153, 39, 1);
 }
 
-/* ЕДИНЫЙ стиль для всех дропдаунов — полный центр, как в гамбургер */
+/* Дропдауны — одинаковые для "О нас" и гамбургера */
 .dropdown-menu {
     position: absolute;
     top: 94px;
@@ -108,42 +108,27 @@ body {
     transition: opacity 0.3s ease;
     border-top: 1px solid rgba(239, 233, 214, 0.3);
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    border-radius: 0 0 12px 12px;
 }
 
-/* Показ для "О нас" и гамбургера */
-#about-menu,
-#hamburger-menu {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.menu-item.has-dropdown:hover ~ #about-menu,
-.menu-item.has-dropdown:hover #about-menu,
-#about-menu:hover,
-#hamburger-menu:hover {
+/* Показ "О нас" и удержание открытым */
+.menu-item.has-dropdown:hover > .dropdown-menu,
+.dropdown-menu:hover {
     opacity: 1;
     visibility: visible;
 }
 
-/* JS для гамбургера (оставь script.js как был) */
-#hamburger-menu {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Мостик для стабильного hover "О нас" */
+/* Надёжный мостик — меню не пропадает при переходе курсора */
 .menu-item.has-dropdown {
     position: relative;
 }
 
-.menu-item.has-dropdown::before {
+.menu-item.has-dropdown::after {
     content: '';
     position: absolute;
-    top: 94px;
-    left: -200px;
-    width: calc(100% + 400px);
-    height: 50px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 40px; /* высота моста */
     background: transparent;
     z-index: 1001;
 }
@@ -255,7 +240,6 @@ body {
     color: rgba(198, 153, 39, 1);
 }
 
-/* Адаптив */
 @media (max-width: 1200px) {
     .header-container {
         padding: 20px 30px;
