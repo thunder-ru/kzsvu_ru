@@ -88,7 +88,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     padding: 80px 40px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center; /* ✅ ЦЕНТРИРУЕМ ПО ВЕРТИКАЛИ */
     gap: 80px;
 }
 
@@ -103,7 +103,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     background: #000;
     margin-bottom: 40px;
     display: flex;
-    align-items: center;
+    align-items: center; /* ✅ Центрируем эмблему и цитату */
     gap: 30px;
 }
 
@@ -165,6 +165,8 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     height: auto;
     border: 2px solid #4a8bf5;
     border-radius: 12px;
+    object-fit: cover; /* ✅ Обрезаем, чтобы не растягивалось */
+    object-position: center; /* ✅ Центрируем изображение */
 }
 
 .photo-caption {
