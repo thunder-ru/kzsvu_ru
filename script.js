@@ -1,25 +1,22 @@
 const hamburger = document.getElementById('hamburger');
 const hamburgerMenu = document.getElementById('hamburger-menu');
 
-hamburger.addEventListener('mouseenter', () => {
+let timeoutId;
+
+const showMenu = () => {
+    clearTimeout(timeoutId);
     hamburgerMenu.style.opacity = '1';
     hamburgerMenu.style.visibility = 'visible';
-});
-
-hamburgerMenu.addEventListener('mouseenter', () => {
-    hamburgerMenu.style.opacity = '1';
-    hamburgerMenu.style.visibility = 'visible';
-});
-
-const hideHamburgerMenu = () => {
-    hamburgerMenu.style.opacity = '0';
-    hamburgerMenu.style.visibility = 'hidden';
 };
 
-hamburger.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-        if (!hamburgerMenu.matches(':hover')) hideHamburgerMenu();
-    }, 100);
-});
+const hideMenu = () => {
+    timeoutId = setTimeout(() => {
+        hamburgerMenu.style.opacity = '0';
+        hamburgerMenu.style.visibility = 'hidden';
+    }, 300); // 300мс задержки — можно перейти в меню
+};
 
-hamburgerMenu.addEventListener('mouseleave', hideHamburgerMenu);
+hamburger.addEventListener('mouseenter', showMenu);
+hamburgerMenu.addEventListener('mouseenter', showMenu);
+hamburger.addEventListener('mouseleave', hideMenu);
+hamburgerMenu.addEventListener('mouseleave', hideMenu);
