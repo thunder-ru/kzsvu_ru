@@ -181,10 +181,10 @@ body {
     text-align: left;
 }
 
-/* Подписаться → и Купить билет → — золотистый */
-.caption-link {
+/* ВСЕ ссылки "Подписаться →" и "Купить билет →" — золотистый (в обоих меню) */
+.image-caption .caption-link {
     font-family: 'Prata', serif;
-    color: rgba(198, 153, 39, 1); /* Золотой */
+    color: rgba(198, 153, 39, 1) !important; /* Золотой, с приоритетом */
     text-decoration: none;
     font-size: 24px;
     line-height: 30px;
@@ -195,7 +195,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.caption-link:hover {
+.image-caption .caption-link:hover {
     opacity: 0.8;
 }
 
