@@ -83,7 +83,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
+    gap: 80px;
 }
 
 .hero-left {
