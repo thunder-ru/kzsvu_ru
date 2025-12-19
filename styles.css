@@ -2,7 +2,7 @@
 
 body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #fff; }
 
-/* Шапка — твоя рабочая версия */
+/* Шапка — твоя рабочая */
 .header {
     width: 100%;
     max-width: 1728px;
@@ -73,7 +73,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     z-index: 1001;
 }
 
-/* Второй блок — точно как на твоём скриншоте */
+/* Второй блок — ТОЧНО как на скриншоте */
 .hero {
     width: 100%;
     max-width: 1728px;
@@ -82,7 +82,6 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     padding: 80px 40px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 60px;
 }
 
@@ -91,17 +90,27 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     max-width: 500px;
 }
 
-.hero-emblem { width: 120px; margin-bottom: 30px; }
+.hero-emblem {
+    width: 120px;
+    margin-bottom: 30px;
+}
 
-.hero-left blockquote {
+.quote-box {
+    border: 2px solid #4a8bf5;
+    padding: 30px;
+    background: #000;
+    margin-bottom: 40px;
+}
+
+.quote-box p {
     font-family: 'Prata', serif;
     font-size: 28px;
     line-height: 40px;
     color: rgba(198, 153, 39, 1);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.hero-left cite {
+.quote-box cite {
     font-size: 18px;
     color: rgba(239, 233, 214, 0.8);
     display: block;
@@ -141,6 +150,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
 .hero-photo {
     width: 100%;
     height: auto;
+    border: 2px solid #4a8bf5;
     border-radius: 12px;
     display: block;
 }
@@ -165,12 +175,19 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     width: 80px;
 }
 
-/* Дропдаун для гамбургера (JS) */
-#hamburger-menu.visible { opacity: 1; visibility: visible; }
-
 /* Адаптив */
 @media (max-width: 1200px) {
-    .hero { padding: 60px 30px; flex-direction: column; text-align: center; }
-    .hero-left { max-width: 100%; }
+    .hero { flex-direction: column; padding: 60px 30px; }
+    .hero-left { max-width: 100%; text-align: center; }
     .hero-right { width: 100%; }
+    .quote-box { padding: 20px; }
+    .hero-left h2 { font-size: 30px; }
+}
+
+@media (max-width: 768px) {
+    .header-container { padding: 20px 20px; }
+    .nav-menu ul { gap: 15px; }
+    .nav-menu a { font-size: 20px; }
+    .dropdown-menu { padding: 30px 20px; gap: 30px; flex-direction: column; }
+    .hero { padding: 40px 20px; }
 }
