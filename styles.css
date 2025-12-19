@@ -49,10 +49,6 @@ body {
     letter-spacing: 1px;
 }
 
-.nav-menu {
-    position: relative; /* Ключ: дропдаун теперь относительно всего меню */
-}
-
 .nav-menu ul {
     display: flex;
     gap: 30px;
@@ -94,16 +90,15 @@ body {
     color: rgba(198, 153, 39, 1);
 }
 
-/* Дропдаун — широкий, центрированный, без зазора */
+/* Общие стили для ВСЕХ дропдаунов (О нас и гамбургер) */
 .dropdown-menu {
     position: absolute;
-    top: 100%; /* Плотно под шапкой */
-    left: 0;
+    top: 94px; /* Точно под шапкой */
+    left: 50%;
+    transform: translateX(-50%);
     width: 100vw;
     max-width: 1728px;
     margin: 0 auto;
-    left: 50%;
-    transform: translateX(-50%);
     background: rgba(17, 17, 14, 0.95);
     padding: 40px 80px;
     display: flex;
@@ -116,7 +111,14 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
-/* Мостик для hover — не пропадает при переходе курсора */
+/* Показ дропдауна "О нас" */
+.menu-item.has-dropdown:hover > .dropdown-menu,
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Мостик для стабильного hover (чтобы не пропадало при переходе курсора) */
 .menu-item.has-dropdown {
     position: relative;
 }
@@ -124,19 +126,12 @@ body {
 .menu-item.has-dropdown::before {
     content: '';
     position: absolute;
-    top: 100%;
-    left: -50px; /* Расширяем зону hover влево/вправо */
-    width: calc(100% + 100px);
-    height: 30px; /* Достаточно для плавного перехода */
+    top: 94px;
+    left: -100px;
+    width: calc(100% + 200px);
+    height: 40px;
     background: transparent;
     z-index: 1001;
-}
-
-/* Показ дропдауна */
-.menu-item.has-dropdown:hover > .dropdown-menu,
-.dropdown-menu:hover {
-    opacity: 1;
-    visibility: visible;
 }
 
 .dropdown-column {
