@@ -2,7 +2,7 @@
 
 body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #fff; }
 
-/* Шапка — твоя рабочая */
+/* Шапка */
 .header {
     width: 100%;
     max-width: 1728px;
@@ -38,7 +38,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
 
 .search-icon:hover svg, .hamburger:hover svg { color: rgba(198, 153, 39, 1); }
 
-/* Дропдауны — оба одинаковые */
+/* Дропдауны — оба одинаковые, выше всего */
 .dropdown-menu {
     position: absolute;
     top: 94px;
@@ -50,7 +50,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     padding: 40px 80px;
     display: flex;
     gap: 50px;
-    z-index: 1000;
+    z-index: 1002; /* Выше всего */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
@@ -82,17 +82,13 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     padding: 80px 40px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 60px;
 }
 
 .hero-left {
     flex: 1;
-    max-width: 500px;
-}
-
-.hero-emblem {
-    width: 120px;
-    margin-bottom: 30px;
+    max-width: 50%;
 }
 
 .quote-box {
@@ -100,20 +96,29 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     padding: 30px;
     background: #000;
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.quote-box p {
+.hero-emblem {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.quote-box blockquote {
     font-family: 'Prata', serif;
     font-size: 28px;
     line-height: 40px;
     color: rgba(198, 153, 39, 1);
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .quote-box cite {
     font-size: 18px;
     color: rgba(239, 233, 214, 0.8);
     display: block;
+    margin-top: 20px;
 }
 
 .hero-left h2 {
@@ -145,6 +150,7 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
 .hero-right {
     flex: 1;
     position: relative;
+    max-width: 50%;
 }
 
 .hero-photo {
@@ -152,7 +158,6 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
     height: auto;
     border: 2px solid #4a8bf5;
     border-radius: 12px;
-    display: block;
 }
 
 .photo-caption {
@@ -178,9 +183,8 @@ body { font-family: system-ui, -apple-system, Arial, sans-serif; background: #ff
 /* Адаптив */
 @media (max-width: 1200px) {
     .hero { flex-direction: column; padding: 60px 30px; }
-    .hero-left { max-width: 100%; text-align: center; }
-    .hero-right { width: 100%; }
-    .quote-box { padding: 20px; }
+    .hero-left, .hero-right { max-width: 100%; }
+    .quote-box { flex-direction: column; text-align: center; }
     .hero-left h2 { font-size: 30px; }
 }
 
