@@ -26,7 +26,7 @@ body {
     align-items: center;
     padding: 20px 40px;
     height: 100%;
-    position: relative;
+    position: relative; /* Дропдауны теперь относительно контейнера */
 }
 
 .logo-section {
@@ -90,15 +90,14 @@ body {
     color: rgba(198, 153, 39, 1);
 }
 
-/* Общие стили для ВСЕХ дропдаунов (О нас и гамбургер) */
+/* ЕДИНЫЙ стиль для ВСЕХ дропдаунов — точно как в гамбургер-меню */
 .dropdown-menu {
     position: absolute;
-    top: 94px; /* Точно под шапкой */
+    top: 94px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
+    width: 100%;
     max-width: 1728px;
-    margin: 0 auto;
     background: rgba(17, 17, 14, 0.95);
     padding: 40px 80px;
     display: flex;
@@ -109,27 +108,30 @@ body {
     transition: opacity 0.3s ease;
     border-top: 1px solid rgba(239, 233, 214, 0.3);
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border-radius: 0 0 12px 12px; /* Как на скриншоте гамбургера */
 }
 
-/* Показ дропдауна "О нас" */
+/* Показ "О нас" */
+.menu-item.has-dropdown:hover ~ .dropdown-menu,
 .menu-item.has-dropdown:hover > .dropdown-menu,
 .dropdown-menu:hover {
     opacity: 1;
     visibility: visible;
 }
 
-/* Мостик для стабильного hover (чтобы не пропадало при переходе курсора) */
+/* Мостик для стабильного hover */
 .menu-item.has-dropdown {
     position: relative;
+    z-index: 1002;
 }
 
 .menu-item.has-dropdown::before {
     content: '';
     position: absolute;
-    top: 94px;
-    left: -100px;
-    width: calc(100% + 200px);
-    height: 40px;
+    top: 100%;
+    left: -200px;
+    width: calc(100% + 400px);
+    height: 50px;
     background: transparent;
     z-index: 1001;
 }
