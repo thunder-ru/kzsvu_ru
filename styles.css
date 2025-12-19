@@ -104,18 +104,17 @@ body {
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0s linear 0.4s; /* задержка скрытия */
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
     border-top: 1px solid rgba(239, 233, 214, 0.3);
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    pointer-events: none; /* важно для задержки */
+    pointer-events: none;
 }
 
-/* Показ */
 .menu-item.has-dropdown:hover > .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transition-delay: 0s; /* мгновенно показываем */
-    pointer-events: auto; /* включаем взаимодействие */
+    transition-delay: 0s;
+    pointer-events: auto;
 }
 
 .dropdown-column {
@@ -182,6 +181,7 @@ body {
     text-align: left;
 }
 
+/* Подписаться → и Купить билет → — золотистый */
 .caption-link {
     font-family: 'Prata', serif;
     color: rgba(198, 153, 39, 1); /* Золотой */
